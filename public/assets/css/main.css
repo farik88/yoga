@@ -1,0 +1,486 @@
+/**
+
+1. FONTS
+2. MAIN STYLES
+3. BASIC PAGE
+4. POLARIS CUSTOMIZE
+5. PROGRAM PAGE
+6. ACCOMODATION PAGE
+7. JQUERY VALIDATE
+8. REGISTER PAGE
+9. MOADLS
+
+**/
+
+/********** 1. FONTS **********/
+@font-face {
+    font-family: 'SFProText-Regular';
+    src: url('/assets/fonts/SFProText-Regular/SFProText-Regular.eot');
+    src: local('☺'), url('/assets/fonts/SFProText-Regular/SFProText-Regular.woff') format('woff'), url('/assets/fonts/SFProText-Regular/SFProText-Regular.ttf') format('truetype'), url('/assets/fonts/SFProText-Regular/SFProText-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SFProText-Medium';
+    src: url('/assets/fonts/SFProText-Medium/SFProText-Medium.eot');
+    src: local('☺'), url('/assets/fonts/SFProText-Medium/SFProText-Medium.woff') format('woff'), url('/assets/fonts/SFProText-Medium/SFProText-Medium.ttf') format('truetype'), url('/assets/fonts/SFProText-Medium/SFProText-Medium.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SFProDisplay-Semibold';
+    src: url('/assets/fonts/SFProDisplay-Semibold/SFProDisplay-Semibold.eot');
+    src: local('☺'), url('/assets/fonts/SFProDisplay-Semibold/SFProDisplay-Semibold.woff') format('woff'), url('/assets/fonts/SFProDisplay-Semibold/SFProDisplay-Semibold.ttf') format('truetype'), url('/assets/fonts/SFProDisplay-Semibold/SFProDisplay-Semibold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/********** 2. MAIN STYLES **********/
+body{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'SFProText-Regular';
+}
+#header{
+    background: #1c2260;
+    width: 100%;
+    height: 60px;
+}
+.Polaris-Page{
+    display: flex;
+    max-width: 1400px;
+    flex-wrap: nowrap;
+    min-height: calc(100% - 60px); 
+}
+#nav{
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding: 2rem 5rem 0 0;
+    border-right: 1px solid #d8d8d8;
+}
+#nav .nav-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#nav .nav-list > .nav-item{
+    padding: 6px 0;
+    position: relative;
+}
+#nav .nav-list > .nav-item > .Polaris-Link{
+    font-family: 'SFProText-Medium';
+    font-size: 1.4rem;
+    white-space: nowrap;
+    opacity: 0.5;
+    cursor: default;
+}
+#nav .nav-list > .nav-item > .Polaris-Link > span{
+    color: #212b36;
+}
+#nav .nav-list > .nav-item.active > .Polaris-Link,
+#nav .nav-list > .nav-item.done > .Polaris-Link{
+    opacity: 1;
+}
+#nav .nav-list > .nav-item .done-mark-image{
+    position: absolute;
+    display: none;
+    right: -4rem;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+}
+#nav .nav-list > .nav-item.done > .done-mark-image{
+    display: block;
+}
+#nav .nav-list > .nav-item.done > .Polaris-Link{
+    cursor: pointer;
+}
+#content{
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 6rem 0 2rem 5rem;
+}
+#content .content-inner{
+    display: none;
+}
+#content .content-inner.show{
+    display: block;
+}
+#content .page_title{
+    font-family: 'SFProDisplay-Semibold';
+    margin-bottom: 20px;
+}
+span.block-desc{
+    display: block;
+    margin-bottom: 15px;
+}
+input[type="date"]{
+    padding: 0.5rem 0 0.5rem 1.2rem;
+    border: 1px solid #c4cdd5;
+    border-radius: 3px;
+    width: 100%;
+}
+#content .log-in-page-content{
+    max-width: 500px;
+    margin: 0 auto;
+}
+.has-error .help-block{
+    color: #ec0000;
+    line-height: 2.5rem;
+}
+.has-error .Polaris-TextField__Backdrop{
+    border-color: #ec0000;
+    box-shadow: inset 0 0 0 0 transparent, 0 0 0 1px #ec0000;
+}
+.form-help-wraper{
+    visibility: hidden;
+    position: relative;
+}
+#form-help{
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+#form-help .Polaris-Card__Section p{
+    display: block;
+}
+#form-help .Polaris-Card__Section p > span.placeholder{
+    color:#afafaf;
+}
+#form-help.active{
+    box-shadow: 0 0 0 1px rgba(54, 54, 202, 0.3), 0 1px 3px 0 rgba(31, 31, 222, 0.47);
+}
+.show-password{
+    z-index: 100;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.show-password img{
+    width: 18px;
+    cursor: pointer;
+}
+/********** 3. BASIC PAGE **********/
+#general_form .content-inner{
+    margin-bottom: 20px;
+}
+#general_form .form-block__container.half-size{
+    width: 50%;
+}
+.form-with-help{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+}
+.form-with-help .form-content{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+.form-with-help .help-block{
+    align-self: flex-start;
+    width: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+    background-color: #f9f9f9;
+    margin: 0;
+    overflow: hidden;
+}
+.form-with-help .help-block .help-content{
+    display: none;
+}
+.form-with-help .help-block .help-title{
+    display: none;
+}
+.tables-nav-block{
+    padding: 20px 0 0 0;
+}
+.tables-nav-block:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.tables-nav-block .left{
+    float: left;
+    text-align: left;
+    width: 50%;
+}
+.tables-nav-block .right{
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+
+/********** 4. POLARIS CUSTOMIZE **********/
+.Polaris-Label__Text{
+    font-family: 'SFProText-Medium';
+    color: #5c6ac4;
+}
+textarea.Polaris-TextField__Input{
+    min-height: 146px;
+}
+
+/********** 5. PROGRAM PAGE **********/
+#main_focus_points_block > h3.Polaris-Heading{
+    margin-bottom: 15px;
+}
+#main_focus_points_block .inputs-block:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#main_focus_points_block .inputs-block .left{
+    float: left;
+    width: 33.33%;
+}
+#main_focus_points_block .inputs-block .right{
+    float: right;
+    width: 66.66%;
+    padding-left: 2rem;
+}
+
+/********** 6. ACCOMODATION PAGE **********/
+.accomodation-amenities-list{
+    display: block;
+    margin-bottom: 15px;
+}
+.accomodation-rooms-table-placeholder{
+    display: block;
+    margin-bottom: 15px;
+}
+.accomodation-rooms-table-wrap{
+    margin-left: -20px;
+    width: calc(100% + 40px);
+}
+#accomodation_rooms_table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+#accomodation_rooms_table td{
+    padding: 11px 5px;
+    border-bottom: 1px solid #dfe3e8;
+}
+#accomodation_rooms_table td:first-child{
+    padding-left: 2rem;
+}
+#accomodation_rooms_table td:last-child{
+    padding-right: 2rem;
+}
+#accomodation_rooms_table td.preview{
+    width: 37%;
+}
+#accomodation_rooms_table td.preview img{
+    display: block;
+    width: 50px;
+    height: auto;
+}
+#accomodation_rooms_table td.bed-configuration{
+    width: 22%;
+}
+#accomodation_rooms_table td.people-in-room{
+    width: 41%;
+}
+#accomodation_rooms_table td.preview .preview-wrap{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 1;
+}
+#accomodation_rooms_table td.preview .preview-wrap > a{
+    margin-left: 10px;
+    font-weight: 500;
+}
+#add_room_modal .modal-footer:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#add_room_modal .modal-footer .left{
+    width: 40%;
+    float: left;
+}
+#add_room_modal .modal-footer .right{
+    width: 60%;
+    float: right;
+    text-align: right;
+}
+#add_room_modal .modal-footer .right button:first-child{
+    margin-left: 0;
+}
+#add_room_modal .modal-footer .right button{
+    margin-left: 5px;
+}
+#add_room_modal .main-form .left{
+    width: 50%;
+    float: left;
+    padding-right: 10px;
+}
+#add_room_modal .main-form .right{
+    width: 50%;
+    float: right;
+    padding-left: 10px;
+}
+#add_room_modal .modal-footer:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#select_amenities_modal .modal-footer{
+    text-align: right;
+}
+#select_amenities_modal .modal-footer button{
+    margin-left: 5px;
+}
+#select_amenities_modal .amenities-list .checkbox-wrap{
+    width: 50%;
+    float: left;
+}
+#select_amenities_modal .amenities-list:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+/********** 7. JQUERY VALIDATE **********/
+.Polaris-TextField label.error{
+    position: absolute;
+    margin-top: 29px;
+    color: #ec0000;
+}
+.Polaris-Select label.error{
+    position: absolute;
+    margin-top: 36px;
+    color: #ec0000;
+    left: 0;
+}
+.Polaris-TextField.Polaris-TextField--multiline .Polaris-TextField__Input.error ~ label.error{
+    position: absolute;
+    margin-top: 84px;
+    color: #ec0000;
+}
+.Polaris-TextField__Input.error ~ .Polaris-TextField__Backdrop{
+    border-color: #ec0000;
+    box-shadow: inset 0 0 0 0 transparent, 0 0 0 1px #ec0000;
+}
+.Polaris-Select__Input.error ~ .Polaris-Select__Backdrop{
+    border-color: #ec0000;
+    box-shadow: inset 0 0 0 0 transparent, 0 0 0 1px #ec0000;
+}
+.listing-page{
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 55px;
+}
+.listing-page h1{
+    margin-bottom: 25px;
+}
+.Polaris-Card > .listing-block:last-child {
+    border-top: 1px solid #dfe3e8;
+    margin-top: 10px;
+}
+.Polaris-Card > .listing-block:first-child {
+    border: 0;
+}
+
+/********** 8. REGISTER PAGE **********/
+#register_form_titles .form-title{
+    display: none;
+}
+#register_form_titles .form-title.show{
+    display: block;
+}
+#register-form .form-part{
+    display: none;
+}
+#register-form .form-part.show{
+    display: block;
+}
+#register_form_titles .form-title .Polaris-ProgressBar{
+    margin-bottom: 50px;
+    background-color: #eff1f3;
+}
+#register_form_titles .form-title .Polaris-ProgressBar .Polaris-ProgressBar__Indicator{
+    background-color: #adb9c1;
+}
+/********** 9. MOADLS **********/
+.modal{
+    padding-right: 17px;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    overflow: hidden;
+    opacity: 0;
+    outline: 0;
+    overflow-y: auto;
+    transition: all 0.3s ease-out;
+}
+.modal.show{
+    display: block;
+    opacity: 1;
+}
+.modal .modal-dialog{
+    width: 100%;
+    max-width: 700px;
+    margin: 100px auto 25px auto;
+    box-shadow: 0 2px 16px 0 rgba(33, 43, 54, 0.08), 0 31px 41px 0 rgba(33, 43, 54, 0.2);
+}
+.modal .modal-content{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+.modal .modal-header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+.modal .modal-header .close{
+    cursor: pointer;
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.45);
+    text-shadow: 0 1px 0 #fff;
+    outline: none;
+}
+.modal .modal-header .modal-title{
+    margin-bottom: 0;
+    font-size: 2.3rem;
+    line-height: 1.7;
+}
+.modal .modal-body{
+    padding: 1rem 2rem;
+}
+.modal .modal-footer{
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #e9ecef;
+}
